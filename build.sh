@@ -22,3 +22,11 @@ rpm-ostree override remove tailscale
 #### Example for enabling a System Unit File
 
 # systemctl enable podman.socket
+
+# Install Nerd Fonts
+
+NF_DIR="/usr/local/fonts/nerd-fonts"
+mkdir -p $NF_DIR
+curl -OL https://github.com/ryanoasis/nerd-fonts/releases/latest/download/JetBrainsMono.tar.xz
+tar -xJf JetBrainsMono.tar.xz -c $NF_DIR
+
