@@ -18,7 +18,6 @@ RELEASE="$(rpm -E %fedora)"
 # this would install a package from rpmfusion
 # rpm-ostree install vlc
 rpm-ostree override remove tailscale
-flatpak uninstall --noninteractive org.fkoehler.KTailctl
 
 #### Example for enabling a System Unit File
 
