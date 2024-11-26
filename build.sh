@@ -25,8 +25,12 @@ rpm-ostree override remove tailscale
 
 # Install Nerd Fonts
 
-NF_DIR="/var/usrlocal/fonts/nerd-fonts"
-mkdir -p $NF_DIR
-curl -OL https://github.com/ryanoasis/nerd-fonts/releases/latest/download/JetBrainsMono.tar.xz
-tar -xJf JetBrainsMono.tar.xz -C $NF_DIR
+FONT_DIR="/usr/share/fonts/"
+NERD_FONTS=("JetBrainsMono")
 
+for font in ${NERD_FONTS[@]};
+do
+    mkdir -p "$FONT_DIR/$font-NF"
+    curl -OL https://github.com/ryanoasis/nerd-fonts/releases/latest/download/$font.tar.xz
+    tar -xJf JetBrainsMono.tar.xz -C "$FONT_DIR/$font-NF"
+done
