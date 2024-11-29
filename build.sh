@@ -34,3 +34,17 @@ do
     curl -OL https://github.com/ryanoasis/nerd-fonts/releases/latest/download/$font.tar.xz
     tar -xJf JetBrainsMono.tar.xz -C "$FONT_DIR/$font-NF"
 done
+
+# some debugging...
+
+ls .
+
+# Network configuration
+
+rpm-ostree install iwd dhcpcd
+cp etc_overrides/NetworkManager/conf.d/* /usr/etc/NetworkManager/conf.d/
+
+# Kernel parameter configuration
+
+rpm-ostree kargs --append="intel_iommu=on"
+
