@@ -42,7 +42,14 @@ ls .
 # Network configuration
 
 rpm-ostree install iwd dhcpcd
-cp etc_overrides/NetworkManager/conf.d/* /usr/etc/NetworkManager/conf.d/
+
+ETC_DIR="/usr/etc/NetworkManager/conf.d"
+
+echo "[main]
+dhcp=dhcpcd" | tee "$ETC_DIR/dhcp-client.conf"
+
+echo "[device]
+wifi.backend=iwd" | tee "$ETC_DIR/wifi-backend.conf"
 
 # Kernel parameter configuration
 
