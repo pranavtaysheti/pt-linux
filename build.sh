@@ -35,21 +35,18 @@ do
     tar -xJf JetBrainsMono.tar.xz -C "$FONT_DIR/$font-NF"
 done
 
-# some debugging...
-
-ls .
-
 # Network configuration
 
 rpm-ostree install iwd dhcpcd
 
 ETC_DIR="/usr/etc/NetworkManager/conf.d"
+mkdir -p "$ETC_DIR"
 
 echo "[main]
-dhcp=dhcpcd" | tee "$ETC_DIR/dhcp-client.conf"
+dhcp=dhcpcd" > "$ETC_DIR/dhcp-client.conf"
 
 echo "[device]
-wifi.backend=iwd" | tee "$ETC_DIR/wifi-backend.conf"
+wifi.backend=iwd" > "$ETC_DIR/wifi-backend.conf"
 
 # Kernel parameter configuration
 
