@@ -50,5 +50,5 @@ wifi.backend=iwd" > "$ETC_DIR/wifi-backend.conf"
 
 # Kernel parameter configuration
 
-rpm-ostree kargs --append="intel_iommu=on"
+# rpm-ostree kargs --append="intel_iommu=on" #doesn't work for some reason
 
