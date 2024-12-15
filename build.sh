@@ -37,13 +37,10 @@ done
 
 # Network configuration
 
-rpm-ostree install iwd dhcpcd
+rpm-ostree install iwd
 
 ETC_DIR="/usr/etc/NetworkManager/conf.d"
 mkdir -p "$ETC_DIR"
-
-echo "[main]
-dhcp=dhcpcd" > "$ETC_DIR/dhcp-client.conf"
 
 echo "[device]
 wifi.backend=iwd" > "$ETC_DIR/wifi-backend.conf"
